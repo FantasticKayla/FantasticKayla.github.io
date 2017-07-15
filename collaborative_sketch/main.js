@@ -1,12 +1,13 @@
   // Initialize Firebase
   var config = {
-      apiKey: "AIzaSyC2vBjZZYIY4iAzF1MbYrPC6JqQwgizDDA",
-      authDomain: "collaborative-sketch-ce756.firebaseapp.com",
-      databaseURL: "https://collaborative-sketch-ce756.firebaseio.com",
-      projectId: "collaborative-sketch-ce756",
-      storageBucket: "collaborative-sketch-ce756.appspot.com",
-      messagingSenderId: "1012650836262"
-  }
+    apiKey: "AIzaSyC2vBjZZYIY4iAzF1MbYrPC6JqQwgizDDA",
+    authDomain: "collaborative-sketch-ce756.firebaseapp.com",
+    databaseURL: "https://collaborative-sketch-ce756.firebaseio.com",
+    projectId: "collaborative-sketch-ce756",
+    storageBucket: "collaborative-sketch-ce756.appspot.com",
+    messagingSenderId: "1012650836262"
+  };
+
 
   firebase.initializeApp(config);
 
@@ -16,10 +17,10 @@
 
   function setup() {
       var canvas = createCanvas(400, 400);
-      backround(255);
+      background(255);
       fill(0);
 
-      pointsData.on("child-added", function(point) {
+      pointsData.on("child-added", function (point) {
           points.push(point.val());
       });
 
@@ -29,12 +30,12 @@
 
 
   function draw() {
-      backround(255);
+      background(255);
 
       for (var i = 0; i < points.length; i++) {
-          var point = points[i];
-          ellipse(point.x, point.y, 5, 5);
-      }
+        var point = points[i];
+        ellipse(point.x, point.y, 5, 5);
+    }
   }
 
   function drawPoint() {
@@ -44,8 +45,8 @@
       });
   }
 
-  function drawPointIfMousePresses() {
-      if (mouseIsPresses) {
+  function drawPointIfMousePressed() {
+      if (mouseIsPressed) {
           drawPoint();
       }
   }
